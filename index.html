@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>構石建築師事務所 Gòushí Architecture</title>
+<style>
+:root{
+  --void:#080808;
+  --dark:#111111;
+  --mid:#1c1c1c;
+  --grey:#2e2e2e;
+  --steel:#5c5c5c;
+  --silver:#9c9c9c;
+  --light:#d0d0d0;
+  --white:#f2f2f2;
+  --pure:#ffffff;
+  --accent:#c8962a;
+  --red:#c0392b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--white);font-family:'Helvetica Neue','Arial',sans-serif;overflow-x:hidden}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 52px;display:flex;justify-content:space-between;align-items:stretch;height:60px;border-bottom:1px solid rgba(255,255,255,0.06);transition:background 0.4s}
+header.scrolled{background:rgba(8,8,8,0.97)}
+.logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--white);border-right:1px solid rgba(255,255,255,0.06);padding-right:24px;margin-right:0}
+.logo-mark{width:28px;height:28px;position:relative;flex-shrink:0}
+.logo-text-group{display:flex;flex-direction:column;gap:2px}
+.logo-zh{font-size:13px;letter-spacing:0.18em;color:var(--pure);font-weight:500}
+.logo-en{font-size:8px;letter-spacing:0.4em;color:var(--steel);text-transform:uppercase}
+nav{display:flex;align-items:center;gap:0}
+nav a{text-decoration:none;color:var(--steel);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,0.06);transition:color 0.3s,background 0.3s}
+nav a:hover{color:var(--white);background:rgba(255,255,255,0.03)}
+.nav-contact{background:var(--accent)!important;color:var(--void)!important;font-weight:600;border-left-color:var(--accent)!important}
+.nav-contact:hover{background:#d4a830!important}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--void);display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-num{position:absolute;top:80px;right:52px;font-size:clamp(120px,18vw,260px);color:rgba(255,255,255,0.025);font-weight:700;letter-spacing:-0.04em;line-height:1;user-select:none}
+.hero-grid-lines{position:absolute;inset:0}
+.hero-tag{font-size:9px;letter-spacing:0.55em;color:var(--accent);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero-tag-line{width:28px;height:1px;background:var(--accent)}
+.hero-h1{font-size:clamp(52px,8vw,130px);font-weight:700;line-height:0.92;letter-spacing:-0.03em;color:var(--pure);margin-bottom:32px}
+.hero-h1 span{display:block}
+.hero-h1 .light{font-weight:300;color:var(--silver)}
+.hero-sub{display:flex;align-items:flex-start;gap:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08)}
+.hero-desc{font-size:14px;color:var(--steel);line-height:1.85;max-width:420px;font-weight:300}
+.hero-cta{display:flex;gap:14px;flex-shrink:0;align-items:center}
+.btn-accent{display:inline-block;padding:13px 28px;background:var(--accent);color:var(--void);text-decoration:none;font-size:10px;letter-spacing:0.35em;font-weight:700;text-transform:uppercase;transition:background 0.3s}
+.btn-accent:hover{background:#d4a830}
+.btn-line{display:inline-block;padding:12px 28px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:var(--silver);text-decoration:none;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;transition:all 0.3s}
+.btn-line:hover{border-color:var(--white);color:var(--white)}
+.hero-scroll{position:absolute;bottom:80px;right:52px;display:flex;align-items:center;gap:12px}
+.hero-scroll span{font-size:8.5px;letter-spacing:0.5em;color:var(--steel);text-transform:uppercase;writing-mode:vertical-rl}
+.hero-scroll-line{width:1px;height:52px;background:linear-gradient(to bottom,var(--steel),transparent)}
+
+/* TICKER */
+.ticker{background:var(--mid);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);padding:14px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;gap:48px;animation:ticker 20s linear infinite}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:9px;letter-spacing:0.45em;color:var(--steel);text-transform:uppercase;display:flex;align-items:center;gap:20px}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
+
+/* PROJECTS */
+.projects{background:var(--dark);padding:100px 52px}
+.projects-inner{max-width:1400px;margin:0 auto}
+.projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.sec-label{font-size:9px;letter-spacing:0.5em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.sec-h2{font-size:clamp(26px,3vw,40px);font-weight:700;color:var(--pure);letter-spacing:-0.02em}
+.projects-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.proj-card{background:var(--dark);overflow:hidden;position:relative;cursor:pointer;transition:background 0.35s}
+.proj-card:hover{background:var(--mid)}
+.proj-card.large{grid-column:span 7}
+.proj-card.small{grid-column:span 5}
+.proj-card.wide{grid-column:span 12}
+.proj-card.third{grid-column:span 4}
+.proj-img{width:100%;aspect-ratio:16/10;background:var(--grey);position:relative;overflow:hidden}
+.proj-card.large .proj-img{aspect-ratio:16/9}
+.proj-card.third .proj-img{aspect-ratio:4/3}
+.proj-info{padding:24px 28px 28px}
+.proj-num{font-size:9px;letter-spacing:0.4em;color:var(--steel);margin-bottom:10px}
+.proj-name{font-size:18px;font-weight:600;color:var(--pure);margin-bottom:4px;letter-spacing:-0.01em}
+.proj-type{font-size:10px;letter-spacing:0.25em;color:var(--steel);text-transform:uppercase;margin-bottom:8px}
+.proj-year{font-size:10px;color:var(--accent);letter-spacing:0.2em}
+.proj-arrow{position:absolute;top:20px;right:20px;width:32px;height:32px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s}
+.proj-card:hover .proj-arrow{opacity:1}
+
+/* PHILOSOPHY */
+.philosophy{background:var(--void);padding:100px 52px}
+.philosophy-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.phil-left{padding-right:80px;border-right:1px solid rgba(255,255,255,0.06)}
+.phil-right{padding-left:80px;display:flex;flex-direction:column;justify-content:space-between}
+.phil-h2{font-size:clamp(32px,4vw,58px);font-weight:700;letter-spacing:-0.03em;color:var(--pure);line-height:1.0;margin-bottom:32px}
+.phil-h2 .thin{font-weight:300;color:var(--silver)}
+.phil-text{font-size:14px;color:var(--steel);line-height:2.0;font-weight:300;margin-bottom:16px}
+.phil-principle{padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.phil-principle:first-child{border-top:1px solid rgba(255,255,255,0.05)}
+.phil-p-num{font-size:9px;letter-spacing:0.4em;color:var(--accent);margin-bottom:8px}
+.phil-p-title{font-size:16px;font-weight:600;color:var(--pure);margin-bottom:6px;letter-spacing:-0.01em}
+.phil-p-text{font-size:13px;color:var(--steel);line-height:1.8;font-weight:300}
+.phil-stat{text-align:center;padding:28px}
+.phil-stat-num{font-size:56px;font-weight:700;color:var(--pure);letter-spacing:-0.03em;line-height:1}
+.phil-stat-unit{font-size:11px;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;margin-top:6px}
+.phil-stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,0.06);margin-top:32px}
+.phil-stat{border-right:1px solid rgba(255,255,255,0.06)}
+.phil-stat:nth-child(2){border-right:none}
+.phil-stat:nth-child(3){border-top:1px solid rgba(255,255,255,0.06);border-right:1px solid rgba(255,255,255,0.06)}
+.phil-stat:nth-child(4){border-top:1px solid rgba(255,255,255,0.06);border-right:none}
+
+/* TEAM */
+.team{background:var(--dark);padding:100px 52px}
+.team-inner{max-width:1200px;margin:0 auto}
+.team-header{margin-bottom:56px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.member-card{background:var(--dark);padding:0;position:relative;overflow:hidden;transition:background 0.35s}
+.member-card:hover{background:var(--mid)}
+.member-img{width:100%;aspect-ratio:3/4}
+.member-info{padding:28px 28px 32px}
+.member-role{font-size:8.5px;letter-spacing:0.45em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+.member-name{font-size:22px;font-weight:700;color:var(--pure);letter-spacing:-0.02em;margin-bottom:4px}
+.member-spec{font-size:11px;letter-spacing:0.2em;color:var(--steel);text-transform:uppercase;margin-bottom:14px}
+.member-bio{font-size:13px;color:var(--steel);line-height:1.85;font-weight:300}
+.member-edu{margin-top:16px;font-size:11px;color:rgba(156,156,156,0.6);line-height:1.7}
+
+/* SERVICES */
+.services{background:var(--void);padding:100px 52px}
+.services-inner{max-width:1200px;margin:0 auto}
+.services-header{margin-bottom:56px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.services-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(255,255,255,0.06)}
+.svc-item{padding:40px 44px;border-bottom:1px solid rgba(255,255,255,0.05);border-right:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;transition:background 0.3s}
+.svc-item:hover{background:rgba(255,255,255,0.025)}
+.svc-item:nth-child(even){border-right:none}
+.svc-item:nth-last-child(-n+2){border-bottom:none}
+.svc-num{font-size:9px;letter-spacing:0.4em;color:var(--accent);margin-bottom:14px}
+.svc-name{font-size:20px;font-weight:600;color:var(--pure);letter-spacing:-0.01em;margin-bottom:10px}
+.svc-desc{font-size:13px;color:var(--steel);line-height:1.85;font-weight:300}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.svc-tag{font-size:8.5px;letter-spacing:0.25em;padding:3px 9px;border:1px solid rgba(255,255,255,0.1);color:var(--steel);text-transform:uppercase}
+
+/* AWARDS */
+.awards{background:var(--mid);padding:80px 52px}
+.awards-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.award-item{text-align:center;flex:1;min-width:160px}
+.award-year{font-size:9px;letter-spacing:0.4em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.award-name{font-size:13px;color:var(--silver);font-weight:400;line-height:1.5}
+.award-body{font-size:11px;color:var(--steel);margin-top:4px}
+.award-divider{width:1px;height:60px;background:rgba(255,255,255,0.08);flex-shrink:0}
+
+/* CTA */
+.cta{background:var(--void);padding:120px 52px;position:relative;overflow:hidden}
+.cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px}
+.cta-left{}
+.cta-label{font-size:9px;letter-spacing:0.5em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
+.cta-h2{font-size:clamp(38px,5vw,68px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--pure);margin-bottom:24px}
+.cta-h2 .thin{font-weight:300;color:var(--silver)}
+.cta-desc{font-size:14px;color:var(--steel);line-height:1.95;font-weight:300;margin-bottom:36px}
+.cta-btns{display:flex;gap:14px}
+.cta-right{border-left:1px solid rgba(255,255,255,0.06);padding-left:80px}
+.cta-contact-list{display:flex;flex-direction:column;gap:0}
+.cta-contact-item{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center}
+.cta-contact-item:first-child{border-top:1px solid rgba(255,255,255,0.05)}
+.cta-contact-label{font-size:9px;letter-spacing:0.4em;color:var(--steel);text-transform:uppercase}
+.cta-contact-val{font-size:13px;color:var(--silver);font-weight:300}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.05)}
+.footer-top{max-width:1400px;margin:0 auto;padding:72px 52px;display:grid;grid-template-columns:3fr 1fr 1fr 1fr;gap:52px}
+.footer-logo-zh{font-size:18px;font-weight:700;letter-spacing:0.06em;color:var(--pure);margin-bottom:4px}
+.footer-logo-en{font-size:9px;letter-spacing:0.4em;color:var(--steel);text-transform:uppercase;margin-bottom:18px}
+.footer-tagline{font-size:12.5px;color:var(--steel);line-height:1.9;font-weight:300;max-width:260px}
+.footer-col-title{font-size:8.5px;letter-spacing:0.48em;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{text-decoration:none;color:var(--steel);font-size:12.5px;font-weight:300;transition:color 0.3s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding:22px 52px;max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom div{font-size:11.5px;color:var(--steel)}
+.footer-bottom a{color:var(--silver);text-decoration:none;transition:color 0.3s}
+.footer-bottom a:hover{color:var(--accent)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-22px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal-left.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <a href="#" class="logo">
+    <svg class="logo-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- G shape geometric -->
+      <rect x="2" y="2" width="24" height="24" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+      <rect x="2" y="2" width="14" height="14" fill="rgba(200,150,42,0.15)" stroke="rgba(200,150,42,0.6)" stroke-width="1"/>
+      <rect x="14" y="14" width="12" height="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+      <line x1="2" y1="16" x2="16" y2="16" stroke="rgba(200,150,42,0.4)" stroke-width="0.8"/>
+    </svg>
+    <div class="logo-text-group">
+      <span class="logo-zh">構石建築</span>
+      <span class="logo-en">Gòushí Architecture</span>
+    </div>
+  </a>
+  <nav>
+    <a href="#projects">作品</a>
+    <a href="#philosophy">理念</a>
+    <a href="#team">團隊</a>
+    <a href="#services">服務</a>
+    <a href="#contact" class="nav-contact">洽談合作</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- Architectural grid -->
+      <defs>
+        <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+        </pattern>
+        <pattern id="grid2" width="400" height="400" patternUnits="userSpaceOnUse">
+          <rect width="400" height="400" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1440" height="900" fill="url(#grid)"/>
+      <rect width="1440" height="900" fill="url(#grid2)"/>
+      <!-- Architecture line drawing (building elevation) -->
+      <g transform="translate(700 100)" opacity="0.07">
+        <!-- Tower building -->
+        <rect x="200" y="50" width="80" height="650" fill="white" stroke="none"/>
+        <rect x="100" y="300" width="100" height="400" fill="white"/>
+        <rect x="350" y="200" width="60" height="500" fill="white"/>
+        <!-- Windows grid -->
+        <g fill="none" stroke="#080808" stroke-width="2">
+          <rect x="210" y="70" width="15" height="25"/>
+          <rect x="235" y="70" width="15" height="25"/>
+          <rect x="255" y="70" width="15" height="25"/>
+          <rect x="210" y="110" width="15" height="25"/>
+          <rect x="235" y="110" width="15" height="25"/>
+          <rect x="255" y="110" width="15" height="25"/>
+          <rect x="210" y="150" width="15" height="25"/>
+          <rect x="235" y="150" width="15" height="25"/>
+          <rect x="255" y="150" width="15" height="25"/>
+        </g>
+        <!-- Ground line -->
+        <line x1="50" y1="700" x2="500" y2="700" stroke="white" stroke-width="3"/>
+      </g>
+      <!-- Large architectural cross plan -->
+      <g transform="translate(900 400)" opacity="0.04">
+        <line x1="-300" y1="0" x2="300" y2="0" stroke="white" stroke-width="1"/>
+        <line x1="0" y1="-300" x2="0" y2="300" stroke="white" stroke-width="1"/>
+        <rect x="-200" y="-200" width="400" height="400" fill="none" stroke="white" stroke-width="0.5"/>
+        <circle cx="0" cy="0" r="150" fill="none" stroke="white" stroke-width="0.5"/>
+        <circle cx="0" cy="0" r="280" fill="none" stroke="white" stroke-width="0.3"/>
+      </g>
+    </svg>
+    <div class="hero-num">GS</div>
+  </div>
+  <div class="hero-tag reveal-left">
+    <div class="hero-tag-line"></div>
+    <span>台灣前衛建築設計 · Established 2015</span>
+  </div>
+  <h1 class="hero-h1 reveal-left">
+    <span>Building</span>
+    <span class="light">Tomorrow's</span>
+    <span>Architecture</span>
+  </h1>
+  <div class="hero-sub reveal">
+    <p class="hero-desc">構石建築師事務所是一間立足台灣、放眼國際的前衛建築設計機構。我們相信建築不只是建造——它是一種對居住者生命、社區脈絡與自然環境的深刻回應。</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-accent">查看作品集</a>
+      <a href="#contact" class="btn-line">開始合作</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot"></span>住宅設計</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>商業建築</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>都市規劃</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>室內設計</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>景觀整合</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Residential</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Commercial</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Urban Planning</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Interior Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Landscape Integration</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>住宅設計</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>商業建築</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>都市規劃</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>室內設計</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>景觀整合</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Residential</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Commercial</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Urban Planning</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Interior Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Landscape Integration</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="projects-inner">
+    <div class="projects-header reveal">
+      <div>
+        <div class="sec-label">Selected Works</div>
+        <h2 class="sec-h2">精選作品</h2>
+      </div>
+      <a href="#" class="btn-line">全部作品</a>
+    </div>
+    <div class="projects-grid">
+      <!-- Project 1 - Large -->
+      <div class="proj-card large reveal">
+        <div class="proj-img">
+          <svg width="100%" height="100%" viewBox="0 0 700 394" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="394" fill="#1c1c1c"/>
+            <defs><linearGradient id="p1g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2e2e2e"/><stop offset="100%" stop-color="#111111"/></linearGradient></defs>
+            <rect width="700" height="394" fill="url(#p1g)"/>
+            <!-- Modernist building facade -->
+            <rect x="100" y="60" width="500" height="300" fill="rgba(46,46,46,0.5)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <!-- Horizontal concrete bands -->
+            <rect x="100" y="60" width="500" height="40" fill="rgba(60,60,60,0.4)"/>
+            <rect x="100" y="140" width="500" height="40" fill="rgba(60,60,60,0.35)"/>
+            <rect x="100" y="220" width="500" height="40" fill="rgba(60,60,60,0.3)"/>
+            <rect x="100" y="300" width="500" height="40" fill="rgba(60,60,60,0.35)"/>
+            <!-- Window grid -->
+            <g stroke="rgba(200,150,42,0.15)" stroke-width="0.5" fill="rgba(200,150,42,0.04)">
+              <rect x="120" y="70" width="30" height="22"/>
+              <rect x="160" y="70" width="30" height="22"/>
+              <rect x="200" y="70" width="30" height="22"/>
+              <rect x="240" y="70" width="30" height="22"/>
+              <rect x="280" y="70" width="30" height="22"/>
+              <rect x="320" y="70" width="30" height="22"/>
+              <rect x="360" y="70" width="30" height="22"/>
+              <rect x="400" y="70" width="30" height="22"/>
+              <rect x="440" y="70" width="30" height="22"/>
+              <rect x="480" y="70" width="30" height="22"/>
+              <rect x="520" y="70" width="30" height="22"/>
+              <rect x="560" y="70" width="30" height="22"/>
+              <rect x="120" y="150" width="30" height="22"/>
+              <rect x="160" y="150" width="30" height="22"/>
+              <rect x="200" y="150" width="30" height="22"/>
+              <rect x="240" y="150" width="30" height="22"/>
+              <rect x="280" y="150" width="30" height="22"/>
+              <rect x="320" y="150" width="30" height="22"/>
+              <rect x="360" y="150" width="30" height="22"/>
+              <rect x="400" y="150" width="30" height="22"/>
+              <rect x="440" y="150" width="30" height="22"/>
+              <rect x="480" y="150" width="30" height="22"/>
+              <rect x="520" y="150" width="30" height="22"/>
+              <rect x="560" y="150" width="30" height="22"/>
+            </g>
+            <!-- Sky gradient -->
+            <defs><linearGradient id="sky1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(200,150,42,0.06)"/><stop offset="100%" stop-color="rgba(28,28,28,0)"/></linearGradient></defs>
+            <rect width="700" height="60" fill="url(#sky1)"/>
+            <!-- Ground plane -->
+            <rect x="0" y="360" width="700" height="34" fill="rgba(0,0,0,0.3)"/>
+            <line x1="0" y1="360" x2="700" y2="360" stroke="rgba(200,150,42,0.12)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">GS-2024-001</div>
+          <div class="proj-name">信義 T 型複合大樓</div>
+          <div class="proj-type">商業 · 辦公 · 零售</div>
+          <div class="proj-year">2024 · 台北市信義區</div>
+        </div>
+        <div class="proj-arrow">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <!-- Project 2 - Small -->
+      <div class="proj-card small reveal">
+        <div class="proj-img">
+          <svg width="100%" height="100%" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="500" height="280" fill="#111111"/>
+            <!-- A-frame house -->
+            <path d="M80 240 L250 40 L420 240Z" fill="rgba(46,46,46,0.5)" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
+            <rect x="180" y="160" width="140" height="80" fill="rgba(20,20,20,0.8)"/>
+            <!-- Windows -->
+            <rect x="200" y="175" width="35" height="40" fill="rgba(200,150,42,0.08)" stroke="rgba(200,150,42,0.2)" stroke-width="0.8"/>
+            <rect x="265" y="175" width="35" height="40" fill="rgba(200,150,42,0.08)" stroke="rgba(200,150,42,0.2)" stroke-width="0.8"/>
+            <rect x="220" y="90" width="60" height="55" fill="rgba(200,150,42,0.06)" stroke="rgba(200,150,42,0.15)" stroke-width="0.8"/>
+            <!-- Ground -->
+            <rect x="0" y="240" width="500" height="40" fill="rgba(0,0,0,0.5)"/>
+            <line x1="0" y1="240" x2="500" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <!-- Sky -->
+            <rect x="0" y="0" width="500" height="40" fill="rgba(200,150,42,0.03)"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">GS-2023-008</div>
+          <div class="proj-name">陽明山私人住宅</div>
+          <div class="proj-type">精品住宅</div>
+          <div class="proj-year">2023 · 台北市士林區</div>
+        </div>
+        <div class="proj-arrow">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <!-- Projects row 2: three cards -->
+      <div class="proj-card third reveal">
+        <div class="proj-img">
+          <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#1c1c1c"/>
+            <!-- Museum/gallery building -->
+            <rect x="60" y="80" width="280" height="180" fill="rgba(40,40,40,0.5)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <rect x="60" y="80" width="280" height="28" fill="rgba(200,150,42,0.08)"/>
+            <!-- Entrance canopy -->
+            <rect x="155" y="220" width="90" height="40" fill="rgba(55,55,55,0.6)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="60" y1="80" x2="340" y2="80" stroke="rgba(200,150,42,0.18)" stroke-width="1.2"/>
+            <!-- Columns -->
+            <rect x="80" y="108" width="8" height="152" fill="rgba(255,255,255,0.04)"/>
+            <rect x="200" y="108" width="8" height="152" fill="rgba(255,255,255,0.04)"/>
+            <rect x="312" y="108" width="8" height="152" fill="rgba(255,255,255,0.04)"/>
+            <!-- Ground -->
+            <rect x="0" y="260" width="400" height="40" fill="rgba(0,0,0,0.4)"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">GS-2023-003</div>
+          <div class="proj-name">南港文化中心</div>
+          <div class="proj-type">公共建築 · 文化</div>
+          <div class="proj-year">2023 · 台北市南港區</div>
+        </div>
+      </div>
+      <div class="proj-card third reveal">
+        <div class="proj-img">
+          <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#111111"/>
+            <!-- Hotel tower -->
+            <rect x="140" y="30" width="120" height="240" fill="rgba(35,35,35,0.6)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+            <!-- Room windows grid -->
+            <g fill="rgba(200,150,42,0.06)" stroke="rgba(200,150,42,0.12)" stroke-width="0.5">
+              <rect x="152" y="45" width="18" height="18"/>
+              <rect x="180" y="45" width="18" height="18"/>
+              <rect x="208" y="45" width="18" height="18"/>
+              <rect x="236" y="45" width="18" height="18"/>
+              <rect x="152" y="75" width="18" height="18"/>
+              <rect x="180" y="75" width="18" height="18"/>
+              <rect x="208" y="75" width="18" height="18"/>
+              <rect x="236" y="75" width="18" height="18"/>
+              <rect x="152" y="105" width="18" height="18"/>
+              <rect x="180" y="105" width="18" height="18"/>
+              <rect x="208" y="105" width="18" height="18"/>
+              <rect x="236" y="105" width="18" height="18"/>
+              <rect x="152" y="135" width="18" height="18"/>
+              <rect x="180" y="135" width="18" height="18"/>
+              <rect x="208" y="135" width="18" height="18"/>
+              <rect x="236" y="135" width="18" height="18"/>
+              <rect x="152" y="165" width="18" height="18"/>
+              <rect x="180" y="165" width="18" height="18"/>
+              <rect x="208" y="165" width="18" height="18"/>
+              <rect x="236" y="165" width="18" height="18"/>
+            </g>
+            <!-- Lobby -->
+            <rect x="100" y="230" width="200" height="40" fill="rgba(50,50,50,0.5)" stroke="rgba(255,255,255,0.06)" stroke-width="0.7"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">GS-2022-011</div>
+          <div class="proj-name">淡水精品旅館</div>
+          <div class="proj-type">旅館 · 接待建築</div>
+          <div class="proj-year">2022 · 新北市淡水區</div>
+        </div>
+      </div>
+      <div class="proj-card third reveal">
+        <div class="proj-img">
+          <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#1c1c1c"/>
+            <!-- Warehouse/industrial converted space -->
+            <rect x="40" y="100" width="320" height="170" fill="rgba(38,38,38,0.5)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <!-- Sawtooth roof -->
+            <path d="M40 100 L80 55 L120 100 L160 55 L200 100 L240 55 L280 100 L320 55 L360 100" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1.2"/>
+            <!-- Skylights -->
+            <rect x="40" y="60" width="40" height="40" fill="rgba(200,150,42,0.08)" stroke="rgba(200,150,42,0.15)" stroke-width="0.8"/>
+            <rect x="120" y="60" width="40" height="40" fill="rgba(200,150,42,0.08)" stroke="rgba(200,150,42,0.15)" stroke-width="0.8"/>
+            <rect x="200" y="60" width="40" height="40" fill="rgba(200,150,42,0.08)" stroke="rgba(200,150,42,0.15)" stroke-width="0.8"/>
+            <rect x="280" y="60" width="40" height="40" fill="rgba(200,150,42,0.06)" stroke="rgba(200,150,42,0.12)" stroke-width="0.8"/>
+            <!-- Door -->
+            <rect x="175" y="195" width="50" height="75" fill="rgba(25,25,25,0.8)" stroke="rgba(255,255,255,0.06)" stroke-width="0.7"/>
+          </svg>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">GS-2022-007</div>
+          <div class="proj-name">大稻埕倉庫改造</div>
+          <div class="proj-type">歷史保存 · 活化再生</div>
+          <div class="proj-year">2022 · 台北市大同區</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="philosophy-inner">
+    <div class="phil-left reveal-left">
+      <div class="sec-label" style="margin-bottom:16px">Design Philosophy</div>
+      <h2 class="phil-h2">建築是<br><span class="thin">凝固的</span><br>時間</h2>
+      <p class="phil-text">我們的每一個設計決策，都在回答一個根本的問題：這個空間如何在未來50年，乃至100年的時間中，持續為使用者與社區創造價值？</p>
+      <p class="phil-text">構石的設計哲學根植於台灣的地理、氣候與文化脈絡，同時汲取國際當代建築理論的養分。我們拒絕風格上的教條，以問題與場所作為設計的起點。</p>
+      <div class="phil-stats">
+        <div class="phil-stat">
+          <div class="phil-stat-num">68</div>
+          <div class="phil-stat-unit">完成專案</div>
+        </div>
+        <div class="phil-stat">
+          <div class="phil-stat-num">9</div>
+          <div class="phil-stat-unit">國際獎項</div>
+        </div>
+        <div class="phil-stat">
+          <div class="phil-stat-num">12</div>
+          <div class="phil-stat-unit">團隊人數</div>
+        </div>
+        <div class="phil-stat">
+          <div class="phil-stat-num">5</div>
+          <div class="phil-stat-unit">海外專案</div>
+        </div>
+      </div>
+    </div>
+    <div class="phil-right reveal">
+      <div>
+        <div class="phil-principle">
+          <div class="phil-p-num">01 — Context</div>
+          <div class="phil-p-title">場所回應</div>
+          <p class="phil-p-text">建築必須深植於其所在的地理、歷史與文化脈絡中。我們在設計之前，花費大量時間理解場所的本質——從土地的地質到鄰里的生活節奏。</p>
+        </div>
+        <div class="phil-principle">
+          <div class="phil-p-num">02 — Material</div>
+          <div class="phil-p-title">材料誠實</div>
+          <p class="phil-p-text">我們讓材料展示其本質的美——清水混凝土的粗礪、耐候鋼的歲月痕跡、台灣花崗岩的紋理。每種材料的選擇都有其邏輯與意義。</p>
+        </div>
+        <div class="phil-principle">
+          <div class="phil-p-num">03 — Light</div>
+          <div class="phil-p-title">光的設計</div>
+          <p class="phil-p-text">光是建築中最重要的非物質材料。我們設計光如何在一天之中、一年之中穿越空間，如何讓空間隨著時間產生動態的生命力。</p>
+        </div>
+        <div class="phil-principle">
+          <div class="phil-p-num">04 — Longevity</div>
+          <div class="phil-p-title">時間的尺度</div>
+          <p class="phil-p-text">我們以世代而非年份思考。優秀的建築應該能夠隨著時間優雅老化，成為社區的記憶錨點，而非被時間淘汰的消費品。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="team-inner">
+    <div class="team-header reveal">
+      <div class="sec-label">The Team</div>
+      <h2 class="sec-h2">設計團隊</h2>
+    </div>
+    <div class="team-grid">
+      <div class="member-card reveal">
+        <div class="member-img">
+          <svg width="100%" height="100%" viewBox="0 0 400 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="533" fill="#1c1c1c"/>
+            <defs><linearGradient id="mg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2e2e2e"/><stop offset="100%" stop-color="#111111"/></linearGradient></defs>
+            <rect width="400" height="533" fill="url(#mg1)"/>
+            <circle cx="200" cy="200" r="85" fill="rgba(46,46,46,0.7)" stroke="rgba(200,150,42,0.15)" stroke-width="1"/>
+            <path d="M80 533 Q80 380 200 380 Q320 380 320 533" fill="rgba(40,40,40,0.5)"/>
+            <rect x="0" y="490" width="400" height="43" fill="rgba(0,0,0,0.3)"/>
+          </svg>
+        </div>
+        <div class="member-info">
+          <div class="member-role">Principal Architect</div>
+          <div class="member-name">謝建石</div>
+          <div class="member-spec">空間策略 · 都市設計</div>
+          <p class="member-bio">哈佛大學建築碩士，曾任職於 Zaha Hadid Architects（倫敦）及 Kengo Kuma &amp; Associates（東京）。2015年返台創立構石建築，專注於以台灣本土視角詮釋當代建築語言。</p>
+          <div class="member-edu">Harvard GSD MArch · 台大建築學士</div>
+        </div>
+      </div>
+      <div class="member-card reveal">
+        <div class="member-img">
+          <svg width="100%" height="100%" viewBox="0 0 400 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="533" fill="#111111"/>
+            <defs><linearGradient id="mg2" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#222222"/><stop offset="100%" stop-color="#0e0e0e"/></linearGradient></defs>
+            <rect width="400" height="533" fill="url(#mg2)"/>
+            <circle cx="200" cy="200" r="85" fill="rgba(40,40,40,0.7)" stroke="rgba(200,150,42,0.12)" stroke-width="1"/>
+            <path d="M80 533 Q80 380 200 380 Q320 380 320 533" fill="rgba(35,35,35,0.5)"/>
+          </svg>
+        </div>
+        <div class="member-info">
+          <div class="member-role">Design Director</div>
+          <div class="member-name">林曉林</div>
+          <div class="member-spec">建築形式 · 材料研究</div>
+          <p class="member-bio">AA School（倫敦建築學院）畢業，擁有結構工程與建築設計雙背景。主導事務所的材料研究部門，致力於探索清水混凝土、耐候鋼等工業材料的美學可能性。</p>
+          <div class="member-edu">AA School MArch · 成大土木學士</div>
+        </div>
+      </div>
+      <div class="member-card reveal">
+        <div class="member-img">
+          <svg width="100%" height="100%" viewBox="0 0 400 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="533" fill="#1c1c1c"/>
+            <defs><linearGradient id="mg3" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#2a2a2a"/><stop offset="100%" stop-color="#121212"/></linearGradient></defs>
+            <rect width="400" height="533" fill="url(#mg3)"/>
+            <circle cx="200" cy="200" r="85" fill="rgba(44,44,44,0.7)" stroke="rgba(200,150,42,0.1)" stroke-width="1"/>
+            <path d="M80 533 Q80 380 200 380 Q320 380 320 533" fill="rgba(38,38,38,0.5)"/>
+          </svg>
+        </div>
+        <div class="member-info">
+          <div class="member-role">Project Architect</div>
+          <div class="member-name">陳永山</div>
+          <div class="member-spec">永續設計 · 施工管理</div>
+          <p class="member-bio">LEED AP BD+C認證建築師，專注於以被動式設計策略降低建築能耗。主導事務所多個獲得黃金級綠建築標章的商業及住宅專案，在熱帶氣候建築設計領域有豐富實務經驗。</p>
+          <div class="member-edu">Columbia MSAAD · 淡江大學建築學士</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="sec-label">What We Do</div>
+      <h2 class="sec-h2">服務範疇</h2>
+    </div>
+    <div class="services-list">
+      <div class="svc-item reveal">
+        <div class="svc-num">01</div>
+        <div class="svc-name">建築設計</div>
+        <p class="svc-desc">從概念發展到施工文件的全程建築設計服務，包含方案設計、設計發展、施工圖說及施工監造。我們以全面整合的設計視角，確保建築意圖在施工過程中忠實呈現。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">住宅</span>
+          <span class="svc-tag">商業</span>
+          <span class="svc-tag">公共建築</span>
+          <span class="svc-tag">複合使用</span>
+        </div>
+      </div>
+      <div class="svc-item reveal">
+        <div class="svc-num">02</div>
+        <div class="svc-name">室內設計</div>
+        <p class="svc-desc">與建築設計高度整合的室內設計服務，從空間規劃、天花板及地板設計，到燈光計畫與家具選配，確保室內外設計語彙的一致性與對話性。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">住宅精裝</span>
+          <span class="svc-tag">辦公空間</span>
+          <span class="svc-tag">餐飲零售</span>
+        </div>
+      </div>
+      <div class="svc-item reveal">
+        <div class="svc-num">03</div>
+        <div class="svc-name">都市規劃</div>
+        <p class="svc-desc">針對較大規模的都市開發或城市更新計畫，提供都市設計、土地使用規劃及公共空間設計的專業顧問服務，協助創造宜居、具活力的城市環境。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">都市更新</span>
+          <span class="svc-tag">公共空間</span>
+          <span class="svc-tag">土地開發</span>
+        </div>
+      </div>
+      <div class="svc-item reveal">
+        <div class="svc-num">04</div>
+        <div class="svc-name">歷史建築活化</div>
+        <p class="svc-desc">融合文化資產保存與當代使用需求，為歷史建築或工業遺址提供保存修復及活化再生設計服務。我們相信新舊並置能創造最豐富的空間層次。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">古蹟修復</span>
+          <span class="svc-tag">倉庫改造</span>
+          <span class="svc-tag">眷村活化</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards">
+  <div class="awards-inner reveal">
+    <div class="award-item">
+      <div class="award-year">2024</div>
+      <div class="award-name">台灣建築獎<br>首獎</div>
+      <div class="award-body">中華民國建築師公會</div>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <div class="award-year">2023</div>
+      <div class="award-name">Asia Pacific<br>Architecture Award</div>
+      <div class="award-body">Silver Medal</div>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <div class="award-year">2023</div>
+      <div class="award-name">綠建築標章<br>黃金級</div>
+      <div class="award-body">內政部建築研究所</div>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <div class="award-year">2022</div>
+      <div class="award-name">WA World<br>Architecture Award</div>
+      <div class="award-body">Shortlist · Culture</div>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <div class="award-year">2021</div>
+      <div class="award-name">台灣室內設計大獎<br>公共空間金獎</div>
+      <div class="award-body">TID Award</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <div class="cta-left reveal-left">
+      <div class="cta-label">Start a Project</div>
+      <h2 class="cta-h2">讓我們<br>一起<span class="thin">建造</span><br>你的想像</h2>
+      <p class="cta-desc">無論是一棟私人住宅、一個商業空間，還是一個城市願景，我們期待聆聽你的故事，並以建築回應它。</p>
+      <div class="cta-btns">
+        <a href="mailto:hello@goushi.tw" class="btn-accent">寄送專案需求</a>
+        <a href="tel:02-27120999" class="btn-line">致電洽詢</a>
+      </div>
+    </div>
+    <div class="cta-right reveal">
+      <div class="cta-contact-list">
+        <div class="cta-contact-item">
+          <span class="cta-contact-label">Studio</span>
+          <span class="cta-contact-val">台北市中山區中山北路二段 88 號 6F</span>
+        </div>
+        <div class="cta-contact-item">
+          <span class="cta-contact-label">Tel</span>
+          <span class="cta-contact-val">02-2712-0999</span>
+        </div>
+        <div class="cta-contact-item">
+          <span class="cta-contact-label">Email</span>
+          <span class="cta-contact-val">hello@goushi.tw</span>
+        </div>
+        <div class="cta-contact-item">
+          <span class="cta-contact-label">Hours</span>
+          <span class="cta-contact-val">週一至週五 10:00—18:00</span>
+        </div>
+        <div class="cta-contact-item">
+          <span class="cta-contact-label">Instagram</span>
+          <span class="cta-contact-val">@goushi.architecture</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-zh">構石建築師事務所</div>
+      <div class="footer-logo-en">Gòushí Architecture Office</div>
+      <p class="footer-tagline">立足台灣、放眼國際的前衛建築設計機構，以場所回應、材料誠實、光的設計與時間尺度作為核心設計哲學。</p>
+    </div>
+    <div>
+      <div class="footer-col-title">作品類型</div>
+      <ul class="footer-links">
+        <li><a href="#">精品住宅</a></li>
+        <li><a href="#">商業建築</a></li>
+        <li><a href="#">公共建築</a></li>
+        <li><a href="#">歷史活化</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">事務所</div>
+      <ul class="footer-links">
+        <li><a href="#">關於我們</a></li>
+        <li><a href="#">設計哲學</a></li>
+        <li><a href="#">團隊介紹</a></li>
+        <li><a href="#">獎項榮譽</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">聯絡合作</div>
+      <ul class="footer-links">
+        <li><a href="#">洽談專案</a></li>
+        <li><a href="#">工作機會</a></li>
+        <li><a href="#">媒體聯絡</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.05)">
+    <div class="footer-bottom">
+      <div>© 2024 構石建築師事務所 Gòushí Architecture Office. All rights reserved.</div>
+      <div>製作單位：<a href="https://bridgeseqlab.vercel.app" target="_blank">橋序創研</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.getElementById('header');
+  if(window.scrollY>60){h.classList.add('scrolled')}else{h.classList.remove('scrolled')}
+});
+var revealEls=document.querySelectorAll('.reveal,.reveal-left');
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.04});
+revealEls.forEach(function(el){observer.observe(el)});
+</script>
+</body>
+</html>

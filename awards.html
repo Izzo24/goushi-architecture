@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>洽談合作｜構石建築師事務所 Gòushí Architecture</title>
+<title>獎項與榮譽｜構石建築師事務所</title>
 <style>
 :root{
   --void:#080808;
@@ -279,6 +279,30 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
 }
 </style>
 </head>
+
+<style>
+.subpage-hero{padding:160px 60px 60px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06)}
+.subpage-hero h1{font-size:clamp(38px,5vw,64px);color:var(--white);font-weight:300;margin:14px 0}
+.subpage-hero p{color:var(--silver);max-width:560px;margin:0 auto;line-height:1.9;font-weight:300}
+.awards-page{max-width:1000px;margin:0 auto;padding:80px 60px}
+.award-row{display:grid;grid-template-columns:120px 1fr;gap:40px;padding:36px 0;border-bottom:1px solid rgba(255,255,255,.08);align-items:start}
+.award-row:first-child{border-top:1px solid rgba(255,255,255,.08)}
+.award-row .yr{font-size:30px;color:var(--accent);font-weight:300;font-family:'Helvetica Neue',sans-serif}
+.award-row .ttl{font-size:20px;color:var(--white);margin-bottom:6px;font-weight:400}
+.award-row .org{font-size:13px;letter-spacing:.05em;color:var(--silver);margin-bottom:12px}
+.award-row .body{font-size:14px;line-height:1.85;color:var(--silver);font-weight:300}
+.awards-stat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:64px}
+.awards-stat .cell{background:var(--void);padding:40px 20px;text-align:center}
+.awards-stat .num{font-size:44px;color:var(--accent);font-weight:300}
+.awards-stat .lbl{font-size:12px;letter-spacing:.1em;color:var(--silver);margin-top:8px}
+@media(max-width:768px){
+  .subpage-hero{padding:120px 20px 48px}
+  .awards-page{padding:56px 20px}
+  .award-row{grid-template-columns:1fr;gap:8px;padding:28px 0}
+  .award-row .yr{font-size:24px}
+  .awards-stat{grid-template-columns:1fr}
+}
+</style>
 <body>
 <header id="header">
   <a href="index.html" class="logo">
@@ -300,7 +324,7 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
       <a href="projects.html" style="--i:2"><span class="nav-num">02</span><span class="nav-zh">作品</span><span class="nav-en">Projects</span></a>
       <a href="philosophy.html" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">理念</span><span class="nav-en">Philosophy</span></a>
       <a href="team.html" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">團隊</span><span class="nav-en">Team</span></a>
-      <a href="awards.html" style="--i:5"><span class="nav-num">05</span><span class="nav-zh">榮譽</span><span class="nav-en">Awards</span></a>
+      <a href="awards.html" class="active" style="--i:5"><span class="nav-num">05</span><span class="nav-zh">榮譽</span><span class="nav-en">Awards</span></a>
       <a href="contact.html" class="nav-cta" style="--i:6">洽談合作</a>
       <div class="nav-foot" style="--i:7"><div class="nav-foot-brand">構石建築 · Gòushí</div><div class="nav-foot-tag">以幾何與石構，定義空間的詩意</div></div>
     </div>
@@ -308,41 +332,40 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
   <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
 </header>
 <div class="nav-backdrop"></div>
-<section class="subpage-hero"><div class="section-label" style="justify-content:center">Contact</div><h1>開啟一場對話</h1><p>無論是住宅、商業或公共空間，我們期待與您共同構築。</p></section><section class="cta" id="contact">
-  <div class="cta-inner">
-    <div class="cta-left reveal-left">
-      <div class="cta-label">Start a Project</div>
-      <h2 class="cta-h2">讓我們<br>一起<span class="thin">建造</span><br>你的想像</h2>
-      <p class="cta-desc">無論是一棟私人住宅、一個商業空間，還是一個城市願景，我們期待聆聽你的故事，並以建築回應它。</p>
-      <div class="cta-btns">
-        <a href="mailto:hello@goushi.tw" class="btn-accent">寄送專案需求</a>
-        <a href="tel:02-27120999" class="btn-line">致電洽詢</a>
-      </div>
-    </div>
-    <div class="cta-right reveal">
-      <div class="cta-contact-list">
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Studio</span>
-          <span class="cta-contact-val">台北市中山區中山北路二段 88 號 6F</span>
-        </div>
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Tel</span>
-          <span class="cta-contact-val">02-2712-0999</span>
-        </div>
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Email</span>
-          <span class="cta-contact-val">hello@goushi.tw</span>
-        </div>
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Hours</span>
-          <span class="cta-contact-val">週一至週五 10:00—18:00</span>
-        </div>
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Instagram</span>
-          <span class="cta-contact-val">@goushi.architecture</span>
-        </div>
-      </div>
-    </div>
+<section class="subpage-hero">
+  <div class="section-label" style="justify-content:center">Awards & Honors</div>
+  <h1>獎項與榮譽</h1>
+  <p>每一座獎盃，都是對土地、結構與人的回應。我們以作品說話，讓肯定自然而來。</p>
+</section>
+<section class="awards-page">
+  <div class="award-row reveal">
+    <div class="yr">2024</div>
+    <div><div class="ttl">台灣建築獎 首獎</div><div class="org">中華民國全國建築師公會</div><div class="body">以「信義 T 型複合大樓」獲頒年度最高榮譽，肯定其對都市公共性的貢獻。</div></div>
+  </div>
+  <div class="award-row reveal">
+    <div class="yr">2023</div>
+    <div><div class="ttl">Asia Pacific Architecture Award</div><div class="org">Silver Medal · Commercial</div><div class="body">亞太建築獎商業類銀獎，於跨國評審中脫穎而出。</div></div>
+  </div>
+  <div class="award-row reveal">
+    <div class="yr">2023</div>
+    <div><div class="ttl">綠建築標章 黃金級</div><div class="org">內政部建築研究所</div><div class="body">「南港文化中心」通過 EEWH 黃金級認證，實踐永續設計承諾。</div></div>
+  </div>
+  <div class="award-row reveal">
+    <div class="yr">2022</div>
+    <div><div class="ttl">WA World Architecture Award</div><div class="org">Shortlist · Culture</div><div class="body">世界建築獎文化類入圍，登上國際建築舞台。</div></div>
+  </div>
+  <div class="award-row reveal">
+    <div class="yr">2021</div>
+    <div><div class="ttl">台灣室內設計大獎 TID Award</div><div class="org">公共空間 金獎</div><div class="body">以細膩的空間敘事獲頒室內設計最高肯定。</div></div>
+  </div>
+  <div class="award-row reveal">
+    <div class="yr">2020</div>
+    <div><div class="ttl">ADA 新銳建築獎</div><div class="org">入選</div><div class="body">新世代建築實驗精神獲評審青睞。</div></div>
+  </div>
+  <div class="awards-stat reveal">
+    <div class="cell"><div class="num">12+</div><div class="lbl">國內外獎項</div></div>
+    <div class="cell"><div class="num">8</div><div class="lbl">綠建築認證</div></div>
+    <div class="cell"><div class="num">2015</div><div class="lbl">事務所成立</div></div>
   </div>
 </section>
 <footer>
@@ -387,7 +410,6 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
     </div>
   </div>
 </footer>
-<button class="to-top" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <script>
 window.addEventListener('scroll',function(){
   var h=document.getElementById('header');

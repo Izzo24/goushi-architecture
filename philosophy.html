@@ -278,6 +278,26 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
   .pd-meta{grid-template-columns:1fr!important}
 }
 </style>
+
+<style>
+@media(max-width:768px){
+  /* 修正理念頁兩欄跑版：真正的兩欄是 .philosophy-inner */
+  .philosophy{padding-left:20px!important;padding-right:20px!important}
+  .philosophy-inner{grid-template-columns:1fr!important;gap:48px!important;padding:0!important}
+  .phil-right{padding-left:0!important;gap:32px}
+  .phil-left{padding-bottom:8px}
+  .phil-h2{font-size:clamp(40px,12vw,64px)!important}
+  .phil-text{font-size:14px!important;line-height:1.9}
+  .phil-principle{padding:0 0 4px}
+  .phil-p-title{font-size:17px!important}
+  .phil-p-text{font-size:13px!important;line-height:1.85}
+  .phil-stats{grid-template-columns:1fr 1fr!important}
+  .phil-stat-num{font-size:38px!important}
+}
+@media(max-width:420px){
+  .phil-stats{grid-template-columns:1fr 1fr!important}
+}
+</style>
 </head>
 <body>
 <header id="header">

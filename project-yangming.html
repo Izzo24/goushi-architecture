@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>作品｜構石建築師事務所 Gòushí Architecture</title>
+<title>陽明山私人住宅｜構石建築師事務所</title>
 <style>
 :root{
   --void:#080808;
@@ -234,6 +234,38 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
 @media(max-width:420px){.nav-inner{padding:100px 26px 32px}nav a{font-size:22px}}
 </style>
 </head>
+
+<style>
+.subpage-hero{padding:140px 60px 50px;text-align:center}
+.proj-hero-img{width:100%;max-height:64vh;object-fit:cover;display:block}
+.proj-detail{max-width:1100px;margin:0 auto;padding:72px 60px}
+.proj-detail .pd-num{font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:14px}
+.proj-detail h1{font-size:clamp(32px,4vw,52px);color:var(--white);font-weight:300;margin-bottom:20px}
+.pd-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;margin:40px 0;padding:32px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.pd-meta .k{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--steel);margin-bottom:8px}
+.pd-meta .v{font-size:15px;color:var(--light)}
+.pd-block{margin:48px 0}
+.pd-block .label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.pd-block p{font-size:15px;line-height:2;color:var(--silver);font-weight:300}
+.pd-cs{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:48px 0}
+.pd-cta{display:flex;gap:14px;margin-top:48px;flex-wrap:wrap}
+.pd-btn{padding:16px 40px;font-size:13px;letter-spacing:.1em;text-decoration:none;transition:.3s}
+.pd-btn-primary{background:var(--accent);color:var(--void)}
+.pd-btn-primary:hover{background:#dba83e}
+.pd-btn-line{border:1px solid var(--steel);color:var(--light)}
+.related{background:var(--dark);padding:72px 60px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:32px auto 0}
+.related-grid a{display:block;text-decoration:none;overflow:hidden;position:relative;aspect-ratio:16/10}
+.related-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.related-grid a:hover img{transform:scale(1.05)}
+.related-grid .rp-name{position:absolute;left:24px;bottom:20px;color:var(--white);font-size:18px;z-index:2}
+.related-grid a::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.8),transparent 60%)}
+@media(max-width:768px){
+  .proj-detail{padding:56px 20px}.subpage-hero{padding:120px 20px 40px}
+  .pd-cs,.related-grid{grid-template-columns:1fr}.related{padding:56px 20px}
+  .proj-hero-img{max-height:44vh}
+}
+</style>
 <body>
 <header id="header">
   <a href="index.html" class="logo">
@@ -262,81 +294,33 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
   <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
 </header>
 <div class="nav-backdrop"></div>
-<section class="subpage-hero"><div class="section-label" style="justify-content:center">Projects</div><h1>構築的痕跡</h1><p>每一座建築，都是對土地與光線的回應。</p></section><section class="projects" id="projects">
-  <div class="projects-inner">
-    <div class="projects-header reveal">
-      <div>
-        <div class="sec-label">Selected Works</div>
-        <h2 class="sec-h2">精選作品</h2>
-      </div>
-      <a href="index.html" class="btn-line">全部作品</a>
-    </div>
-    <div class="projects-grid">
-      <!-- Project 1 - Large -->
-      <a href="project-xinyi.html" class="proj-card-link" style="text-decoration:none;color:inherit;display:block"><div class="proj-card large reveal">
-        <div class="proj-img">
-          <img class="proj-img" src="img/proj-1.webp" alt="信義 T 型複合大樓" loading="lazy" decoding="async" />
-        </div>
-        <div class="proj-info">
-          <div class="proj-num">GS-2024-001</div>
-          <div class="proj-name">信義 T 型複合大樓</div>
-          <div class="proj-type">商業 · 辦公 · 零售</div>
-          <div class="proj-year">2024 · 台北市信義區</div>
-        </div></a>
-        <div class="proj-arrow">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <!-- Project 2 - Small -->
-      <a href="project-yangming.html" class="proj-card-link" style="text-decoration:none;color:inherit;display:block"><div class="proj-card small reveal">
-        <div class="proj-img">
-          <img class="proj-img" src="img/proj-2.webp" alt="陽明山私人住宅" loading="lazy" decoding="async" />
-        </div>
-        <div class="proj-info">
-          <div class="proj-num">GS-2023-008</div>
-          <div class="proj-name">陽明山私人住宅</div>
-          <div class="proj-type">精品住宅</div>
-          <div class="proj-year">2023 · 台北市士林區</div>
-        </div></a>
-        <div class="proj-arrow">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <!-- Projects row 2: three cards -->
-      <a href="project-nangang.html" class="proj-card-link" style="text-decoration:none;color:inherit;display:block"><div class="proj-card third reveal">
-        <div class="proj-img">
-          <img class="proj-img" src="img/proj-3.webp" alt="南港文化中心" loading="lazy" decoding="async" />
-        </div>
-        <div class="proj-info">
-          <div class="proj-num">GS-2023-003</div>
-          <div class="proj-name">南港文化中心</div>
-          <div class="proj-type">公共建築 · 文化</div>
-          <div class="proj-year">2023 · 台北市南港區</div>
-        </div></a>
-      </div>
-      <a href="project-tamsui.html" class="proj-card-link" style="text-decoration:none;color:inherit;display:block"><div class="proj-card third reveal">
-        <div class="proj-img">
-          <img class="proj-img" src="img/proj-4.webp" alt="淡水精品旅館" loading="lazy" decoding="async" />
-        </div>
-        <div class="proj-info">
-          <div class="proj-num">GS-2022-011</div>
-          <div class="proj-name">淡水精品旅館</div>
-          <div class="proj-type">旅館 · 接待建築</div>
-          <div class="proj-year">2022 · 新北市淡水區</div>
-        </div></a>
-      </div>
-      <a href="project-dadaocheng.html" class="proj-card-link" style="text-decoration:none;color:inherit;display:block"><div class="proj-card third reveal">
-        <div class="proj-img">
-          <img class="proj-img" src="img/proj-5.webp" alt="大稻埕倉庫改造" loading="lazy" decoding="async" />
-        </div>
-        <div class="proj-info">
-          <div class="proj-num">GS-2022-007</div>
-          <div class="proj-name">大稻埕倉庫改造</div>
-          <div class="proj-type">歷史保存 · 活化再生</div>
-          <div class="proj-year">2022 · 台北市大同區</div>
-        </div></a>
-      </div>
-    </div>
+<img class="proj-hero-img" src="img/proj-2.webp" alt="陽明山私人住宅">
+<div class="proj-detail reveal">
+  <div class="pd-num">GS-2023-014</div>
+  <h1>陽明山私人住宅</h1>
+  <div class="pd-meta">
+    <div><div class="k">類型</div><div class="v">精品住宅</div></div>
+    <div><div class="k">完工年份</div><div class="v">2023</div></div>
+    <div><div class="k">基地位置</div><div class="v">台北市士林區</div></div>
+    <div><div class="k">樓地板面積</div><div class="v">620 m²</div></div>
+    <div><div class="k">服務範圍</div><div class="v">建築設計 · 景觀整合</div></div>
+  </div>
+  <div class="pd-block"><div class="label">專案概述</div><p>依山而建的私人住宅，以清水模與大面玻璃將山嵐、樹影納入日常起居。</p></div>
+  <div class="pd-block"><div class="label">設計概念</div><p>建築不該征服自然，而是棲居其中。我們讓量體順著等高線錯落，每個空間都框取一幅獨特的山景，模糊室內外的界線。</p></div>
+  <div class="pd-cs">
+    <div class="pd-block" style="margin:0"><div class="label">設計挑戰</div><p>陡坡基地、潮濕氣候與隱私需求，三者須同時兼顧。</p></div>
+    <div class="pd-block" style="margin:0"><div class="label">解決方案</div><p>以階梯式平台順應地形，深出簷遮陽擋雨，內向庭院確保私密的同時引入天光。</p></div>
+  </div>
+  <div class="pd-cta">
+    <a href="contact.html" class="pd-btn pd-btn-primary">洽談類似專案</a>
+    <a href="projects.html" class="pd-btn pd-btn-line">返回作品列表</a>
+  </div>
+</div>
+<section class="related">
+  <div class="projects-header reveal" style="max-width:1000px;margin:0 auto 8px"><div class="sec-label">More Works</div><h2 class="sec-h2" style="font-size:28px;color:var(--white);font-weight:300">其他作品</h2></div>
+  <div class="related-grid">
+    <a href="project-xinyi.html"><img src="img/proj-1.webp" alt="信義 T 型複合大樓"><span class="rp-name">信義 T 型複合大樓</span></a>
+    <a href="project-nangang.html"><img src="img/proj-3.webp" alt="南港文化中心"><span class="rp-name">南港文化中心</span></a>
   </div>
 </section>
 <footer>
@@ -381,7 +365,6 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
     </div>
   </div>
 </footer>
-<button class="to-top" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <script>
 window.addEventListener('scroll',function(){
   var h=document.getElementById('header');

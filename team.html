@@ -278,6 +278,25 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
   .pd-meta{grid-template-columns:1fr!important}
 }
 </style>
+
+<style>
+@media(max-width:768px){
+  /* 團隊照在手機限高，避免每張佔滿一大格、頁面過長 */
+  .team-member .team-img,.team-grid .team-img{aspect-ratio:3/4;max-height:62vh}
+  .team-member{margin-bottom:8px}
+  .team-info,.team-text{padding:20px 4px 32px!important}
+  .team-name{font-size:22px!important;margin-bottom:4px}
+  .team-role{font-size:11px!important;letter-spacing:.12em}
+  .team-desc{font-size:13px!important;line-height:1.85;margin-top:12px}
+  /* team section 移除上方多餘間距（標題已刪） */
+  .team-inner{padding-top:8px!important}
+  /* services 區手機優化（正確 class）*/
+  .services-list{grid-template-columns:1fr!important}
+  .svc-item{padding:28px 4px!important}
+  .svc-name{font-size:18px!important}
+  .svc-tags{flex-wrap:wrap}
+}
+</style>
 </head>
 <body>
 <header id="header">
@@ -310,10 +329,7 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
 <div class="nav-backdrop"></div>
 <section class="subpage-hero"><div class="section-label" style="justify-content:center">The Team</div><h1>設計團隊</h1><p>一群相信建築能改變生活的人。</p></section><section class="team" id="team">
   <div class="team-inner">
-    <div class="team-header reveal">
-      <div class="sec-label">The Team</div>
-      <h2 class="sec-h2">設計團隊</h2>
-    </div>
+    
     <div class="team-grid">
       <div class="member-card reveal">
         <div class="member-img">

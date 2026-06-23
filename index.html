@@ -187,6 +187,9 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.05)}
 .reveal-left.visible{opacity:1;transform:none}
 
 .hero-img,.proj-img,.team-img{width:100%;height:100%;object-fit:cover;display:block}
+
+.hero-tag,.hero-h1,.hero-sub,.hero-scroll{position:relative;z-index:2}
+.hero-bg{z-index:1}
 </style>
 
 <style>
@@ -251,10 +254,10 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
   </a>
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="active" style="--i:1"><span class="nav-num">01</span><span class="nav-zh">首頁</span><span class="nav-en">Home</span></a>
-      <a href="projects.html" style="--i:2"><span class="nav-num">02</span><span class="nav-zh">作品</span><span class="nav-en">Projects</span></a>
-      <a href="philosophy.html" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">理念</span><span class="nav-en">Philosophy</span></a>
-      <a href="team.html" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">團隊</span><span class="nav-en">Team</span></a>
+      <a href="index.html" class="active" style="--i:1"><span class="nav-num">01</span><span class="nav-zh">首頁</span><span class="nav-en">首頁</span></a>
+      <a href="projects.html" style="--i:2"><span class="nav-num">02</span><span class="nav-zh">作品</span><span class="nav-en">作品</span></a>
+      <a href="philosophy.html" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">理念</span><span class="nav-en">設計理念</span></a>
+      <a href="team.html" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">團隊</span><span class="nav-en">團隊</span></a>
       <a href="contact.html" class="nav-cta" style="--i:5">洽談合作</a>
       <div class="nav-foot" style="--i:6"><div class="nav-foot-brand">構石建築 · Gòushí</div><div class="nav-foot-tag">以幾何與石構，定義空間的詩意</div></div>
     </div>
@@ -272,9 +275,9 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
     <span>台灣前衛建築設計 · Established 2015</span>
   </div>
   <h1 class="hero-h1 reveal-left">
-    <span>Building</span>
-    <span class="light">Tomorrow's</span>
-    <span>Architecture</span>
+    <span>構築</span>
+        <span class="light">明日</span>
+        <span>的建築</span>
   </h1>
   <div class="hero-sub reveal">
     <p class="hero-desc">構石建築師事務所是一間立足台灣、放眼國際的前衛建築設計機構。我們相信建築不只是建造——它是一種對居住者生命、社區脈絡與自然環境的深刻回應。</p>
@@ -285,13 +288,13 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
-    <span>Scroll</span>
+    <span>向下捲動</span>
   </div>
 </section><section class="projects" id="projects">
   <div class="projects-inner">
     <div class="projects-header reveal">
       <div>
-        <div class="sec-label">Selected Works</div>
+        <div class="sec-label">精選作品</div>
         <h2 class="sec-h2">精選作品</h2>
       </div>
       <a href="index.html" class="btn-line">全部作品</a>
@@ -366,7 +369,7 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
 </section><section class="cta" id="contact">
   <div class="cta-inner">
     <div class="cta-left reveal-left">
-      <div class="cta-label">Start a Project</div>
+      <div class="cta-label">開始合作</div>
       <h2 class="cta-h2">讓我們<br>一起<span class="thin">建造</span><br>你的想像</h2>
       <p class="cta-desc">無論是一棟私人住宅、一個商業空間，還是一個城市願景，我們期待聆聽你的故事，並以建築回應它。</p>
       <div class="cta-btns">
@@ -377,7 +380,7 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
     <div class="cta-right reveal">
       <div class="cta-contact-list">
         <div class="cta-contact-item">
-          <span class="cta-contact-label">Studio</span>
+          <span class="cta-contact-label">事務所</span>
           <span class="cta-contact-val">台北市中山區中山北路二段 88 號 6F</span>
         </div>
         <div class="cta-contact-item">
@@ -385,11 +388,11 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
           <span class="cta-contact-val">02-2712-0999</span>
         </div>
         <div class="cta-contact-item">
-          <span class="cta-contact-label">Email</span>
+          <span class="cta-contact-label">電子郵件</span>
           <span class="cta-contact-val">hello@goushi.tw</span>
         </div>
         <div class="cta-contact-item">
-          <span class="cta-contact-label">Hours</span>
+          <span class="cta-contact-label">服務時間</span>
           <span class="cta-contact-val">週一至週五 10:00—18:00</span>
         </div>
         <div class="cta-contact-item">

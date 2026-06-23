@@ -233,6 +233,51 @@ nav .nav-num,nav .nav-en,nav .nav-foot{display:none}
 }
 @media(max-width:420px){.nav-inner{padding:100px 26px 32px}nav a{font-size:22px}}
 </style>
+
+<style>
+/* ── 完整內容區手機 RWD ── */
+@media(max-width:768px){
+  /* Hero */
+  .hero{padding:0 20px 56px!important;min-height:100vh;min-height:100svh}
+  .hero-num{font-size:clamp(80px,26vw,140px)!important;top:60px!important;right:16px!important}
+  .hero-tag{font-size:8px!important;letter-spacing:0.3em!important;margin-bottom:16px!important;flex-wrap:wrap}
+  .hero-h1{font-size:clamp(40px,15vw,72px)!important;margin-bottom:24px!important;line-height:1}
+  .hero-sub{flex-direction:column!important;gap:24px!important;padding-top:24px!important}
+  .hero-desc{font-size:14px!important;max-width:100%!important}
+  .hero-cta{flex-wrap:wrap;gap:12px}
+  .hero-scroll{display:none!important}
+  /* Projects grid 12欄→單欄，取消跨欄 */
+  .projects-grid{grid-template-columns:1fr!important;gap:2px!important}
+  .proj-card.large,.proj-card.small,.proj-card.wide,.proj-card.third{grid-column:auto!important}
+  .proj-card .proj-img,.proj-img{aspect-ratio:16/10}
+  .proj-info{padding:20px!important}
+  .proj-name{font-size:20px!important}
+  /* Team / Services / Philosophy / Awards 多欄→單欄 */
+  .team-grid{grid-template-columns:1fr!important}
+  .services{grid-template-columns:1fr!important}
+  .philosophy{grid-template-columns:1fr!important;gap:0!important}
+  .awards-grid,.awards-list{grid-template-columns:1fr!important}
+  /* section padding 收斂 */
+  .projects,.philosophy,.team,.services,.awards,.cta{padding-left:20px!important;padding-right:20px!important}
+  .projects-inner,.philosophy,.cta-inner{padding-left:0!important;padding-right:0!important}
+  .sec-h2,.cta-h2{font-size:clamp(30px,9vw,44px)!important}
+  /* subpage hero */
+  .subpage-hero{padding:120px 20px 48px!important}
+  /* 作品詳情頁 */
+  .proj-hero-img{max-height:44vh}
+  .pd-meta{grid-template-columns:1fr 1fr!important}
+  .pd-cs{grid-template-columns:1fr!important}
+  .pd-cta{flex-direction:column}.pd-btn{text-align:center}
+  /* Footer 多欄→堆疊 */
+  footer .footer-inner,.footer-grid,.footer-top,[class*="footer"][class*="grid"]{grid-template-columns:1fr!important;gap:32px!important;padding:48px 20px!important}
+  .cta-inner{padding:80px 20px!important;grid-template-columns:1fr!important;gap:40px!important}
+  .cta-right{border-left:none!important;padding-left:0!important;border-top:1px solid rgba(255,255,255,0.08);padding-top:32px!important}
+  .footer-top{grid-template-columns:1fr!important;gap:32px!important;padding:48px 20px!important}
+}
+@media(max-width:420px){
+  .pd-meta{grid-template-columns:1fr!important}
+}
+</style>
 </head>
 
 <style>
